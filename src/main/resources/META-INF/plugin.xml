@@ -5,6 +5,8 @@
     <vendor>aswinkvncl</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java-capable</depends>
+    <depends>Git4Idea</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.aswinkvncl.featuretrackerplugin.services.MyApplicationService"/>
@@ -15,4 +17,16 @@
         <listener class="com.github.aswinkvncl.featuretrackerplugin.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+    <actions>
+        <action id="AccessDocumentationAction" class="AccessDocumentationAction" text="Navigate to Documentation"
+                description="Navigate to documentation">
+        <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+    <actions>
+        <action id="AccessJiraAction" class="AccessJiraAction" text="Contact Code Author"
+                description="Contact code author">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>
